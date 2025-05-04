@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dew Kuwut | Kesegaran Tropis Elegan</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-overlay: rgba(255, 255, 255, 0.8);
+      --text-color: #333;
+      --primary-color: #388e3c;
+      --secondary-color: #e0f2f1;
+      --footer-bg: #2e7d32;
+      --hero-overlay: rgba(0,0,0,0.4);
+    }
+
+    body.dark-mode {
+      --bg-overlay: rgba(18, 18, 18, 0.8);
+      --text-color: #e0e0e0;
+      --primary-color: #81c784;
+      --secondary-color: #1e1e1e;
+      --footer-bg: #1b5e20;
+      --hero-overlay: rgba(0,0,0,0.5);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      position: relative;
+    }
+
+    /* Background gambar seluruh halaman tanpa blur */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://img.freepik.com/premium-photo/es-mentimun-cucumber-ice-drink-with-lime-basil-seeds-eye-level-angle-summer-drink_1048944-14546718.jpg?ga=GA1.1.1959577969.1746324477&semt=ais_hybrid&w=740') center/cover no-repeat;
+      z-index: -2;
+    }
+
+    .overlay {
+      background: var(--bg-overlay);
+      min-height: 100vh;
+      transition: background 0.5s;
+    }
+
+    header {
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    header img {
+      height: 50px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .theme-toggle {
+      padding: 8px 14px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .theme-toggle:hover {
+      background: #2e7d32;
+    }
+
+    .hero {
+      position: relative;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .hero-content h1 {
+      font-size: 32px;
+      background: var(--hero-overlay);
+      padding: 12px 24px;
+      border-radius: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .content {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .content .highlight {
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    .content img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: #2e7d32;
+    }
+
+    .testimonials {
+      background-color: var(--secondary-color);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .testimonial-slider {
+      max-width: 600px;
+      margin: auto;
+      position: relative;
+    }
+
+    .testimonial {
+      display: none;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--text-color);
+      animation: fadeIn 1s ease;
+    }
+
+    .testimonial.active {
+      display: block;
+    }
+
+    footer {
+      background-color: var(--footer-bg);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #c8e6c9;
+      text-decoration: none;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay">
+
+  <header>
+    <img src="WhatsApp Image 2025-05-03 at 13.10.23.jpeg" alt="Dew Kuwut Logo">
+    <h2>Dew Kuwut</h2>
+    <button class="theme-toggle" onclick="toggleDarkMode()">Mode Gelap</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Seruput Kesegaran Natural,<br> Biar Harimu Makin Ceria!</h1>
+    </div>
+  </section>
+
+  <section class="content scroll-reveal">
+    <img src="WhatsApp Image 2025-05-04 at 12.46.05.jpeg" alt="Es Kuwut">
+    <h2>Es Kuwut Hanya <span class="highlight">Rp 3.000</span></h2>
+    <p>Minuman tropis premium berpadu rasa sirup, melon dan jeruk nipis. Segar alami, tampil menarik, cocok untuk hari yang ceria.</p>
+    <a class="button" href="https://wa.me/6281229583131" target="_blank">Pesan Sekarang</a>
+  </section>
+
+  <section class="testimonials scroll-reveal">
+    <h2>Testimoni Pelanggan</h2>
+    <div class="testimonial-slider">
+      <div class="testimonial active">“Segar banget, dan tampilannya juga simpel, mudah dibawa!” - Fajar</div>
+      <div class="testimonial">“Cocok banget buat yang suka minuman alami tapi classy.” - Restu</div>
+      <div class="testimonial">“Beli buat temen, semua pada suka.” - Rasya</div>
+    </div>
+  </section>
+
+  <footer class="scroll-reveal">
+    <p>Hubungi kami via WhatsApp: <a href="https://wa.me/6281229583131">0812-2958-3131</a></p>
+    <p>&copy; 2025 Dew Kuwut. Kesegaran Tropis Elegan.</p>
+  </footer>
+
+</div>
+
+<script>
+  let index = 0;
+  const testimonials = document.querySelectorAll('.testimonial');
+  setInterval(() => {
+    testimonials[index].classList.remove('active');
+    index = (index + 1) % testimonials.length;
+    testimonials[index].classList.add('active');
+  }, 4000);
+
+  const reveals = document.querySelectorAll('.scroll-reveal');
+  function revealOnScroll() {
+    const trigger = window.innerHeight * 0.85;
+    reveals.forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < trigger) {
+        el.classList.add('revealed');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const btn = document.querySelector('.theme-toggle');
+    btn.textContent = document.body.classList.contains('dark-mode') ? 'Mode Terang' : 'Mode Gelap';
+  }
+</script>
+
+</body>
+</html>
